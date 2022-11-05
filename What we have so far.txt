@@ -1,0 +1,6 @@
+Projet: *Digital assistant*
+Team name: ???
+
+What to do:
+    1. Assistant name?
+    2. Team name = assistant name?
