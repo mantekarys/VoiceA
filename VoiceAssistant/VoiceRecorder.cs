@@ -13,6 +13,10 @@ namespace VoiceAssistant
     public class VoiceRecorder
     {
         private string RecordingsFolder;
+        public string GetRecordingsFolder()
+        {
+            return RecordingsFolder;
+        }
 
         [DllImport("winmm.dll", EntryPoint = "mciSendStringA", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern int mciSendString(string lpstrCommand, string lpstrReturnString, int uReturnLength, int hwndCallback);
@@ -32,7 +36,7 @@ namespace VoiceAssistant
         {
             get
             {
-                return KeyString.Replace(", ", " + ");
+                return KeyString;
             }
         }
 
