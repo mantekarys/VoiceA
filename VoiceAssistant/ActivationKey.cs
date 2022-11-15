@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace VoiceAssistant
 {
-    static class ActivationKey
+    public static class ActivationKey
     {
         public enum KeyType
         {
@@ -13,16 +13,9 @@ namespace VoiceAssistant
             Keyboard
         }
 
-        private static string KeyString = Properties.Settings.Default.Keybind;
-        private static KeyType KeyT = KeyType.Keyboard;
+        public static string KeyString = Properties.Settings.Default.Keybind;
+        public static KeyType KeyT = KeyType.Keyboard;
 
-        public static string Keys
-        {
-            get
-            {
-                return KeyString.Replace(", ", " + ");
-            }
-        }
 
         public static string[] KeysArray
         {
@@ -39,7 +32,7 @@ namespace VoiceAssistant
             }
         }
 
-        private static bool clicked;
+        public static bool clicked;
 
         public static bool IsClicked()
         {
