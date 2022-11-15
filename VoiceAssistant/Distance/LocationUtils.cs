@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OpenQA.Selenium;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,21 +12,22 @@ namespace VoiceAssistant
     {
         public static double[] GetLatiLongi(string location, string file)
         {
-            location = location.ToLower();
-            string line = "";
-            using (StreamReader reader = new StreamReader(file))
-            {
-                string loc = "";
-                while (!loc.ToLower().Equals(location) && line != null)
-                {
-                    line = reader.ReadLine();
-                    if (line != null)
-                        loc = line.Split(',')[0].Trim('"');
-                }
-            }
-
             try
             {
+                location = location.ToLower();
+                string line = "";
+                using (StreamReader reader = new StreamReader(file))
+                {
+                    string loc = "";
+                    while (!loc.ToLower().Equals(location) && line != null)
+                    {
+                        line = reader.ReadLine();
+                        if (line != null)
+                            loc = line.Split(',')[0].Trim('"');
+                    }
+                }
+
+
                 double lati = Double.Parse(line.Split(',')[2].Trim('"'));
                 double longi = Double.Parse(line.Split(',')[3].Trim('"'));
 
@@ -39,6 +41,10 @@ namespace VoiceAssistant
 
         public static int GetDistance(string location1, string location2)
         {
+            if (location1 == null || location2 == null)
+            {
+                return 0;
+            }
             double[] coo1 = GetLatiLongi(location1, Constants.DistanceFile);
             double[] coo2 = GetLatiLongi(location2, Constants.DistanceFile);
 
@@ -62,13 +68,11 @@ namespace VoiceAssistant
                 Console.WriteLine($"Location \"{ location1 }\" not found.");
                 return -1;
             }
-            if (coo2.Length == 0)
+            else //if (coo2.Length == 0)
             {
                 Console.WriteLine($"Location \"{ location2 }\" not found.");
                 return -2;
             }
-            
-            return -3;
         }
     }
 }

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceAssistant", "VoiceAssi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceAssistantTests", "..\VoiceAssistantTests\VoiceAssistantTests.csproj", "{5CD63E3B-9DBC-4F25-A600-345CA02829D7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceAssistant.Tests", "..\VoiceAssistant.Tests02\VoiceAssistant.Tests.csproj", "{BC3542B6-0F75-4D7A-8C2C-BACBE8D94598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VoiceAssistant.Tests1", "..\VoiceAssistant.Tests03\VoiceAssistant.Tests1.csproj", "{B585FCDD-507E-4E0C-B542-504950A98E4D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{5CD63E3B-9DBC-4F25-A600-345CA02829D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CD63E3B-9DBC-4F25-A600-345CA02829D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CD63E3B-9DBC-4F25-A600-345CA02829D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC3542B6-0F75-4D7A-8C2C-BACBE8D94598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC3542B6-0F75-4D7A-8C2C-BACBE8D94598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC3542B6-0F75-4D7A-8C2C-BACBE8D94598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC3542B6-0F75-4D7A-8C2C-BACBE8D94598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B585FCDD-507E-4E0C-B542-504950A98E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B585FCDD-507E-4E0C-B542-504950A98E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B585FCDD-507E-4E0C-B542-504950A98E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B585FCDD-507E-4E0C-B542-504950A98E4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

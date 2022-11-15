@@ -12,7 +12,9 @@ namespace VoiceAssistant
 
         public static readonly string SystemFolder = Environment.SystemDirectory;
 
-        public static readonly string DistanceFile = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Distance", "worldcities.csv");
+        public static readonly string DistanceFile = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Name == "VoiceAssistant.Tests02" || Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Name =="VoiceAssistantTests" ?
+            Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName, "VoiceAssistant\\Distance", "worldcities.csv"):
+            Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Distance", "worldcities.csv");
         public static readonly string LocationFile = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "Distance", "locationList.txt");
         
     }
