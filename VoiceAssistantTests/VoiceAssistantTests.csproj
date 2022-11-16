@@ -82,6 +82,8 @@
     <Compile Include="MantasOnlineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shortcuts code\ShortcutTests.cs" />
+    <Compile Include="Shortcuts code\TaskUtilsTests.cs" />
+    <Compile Include="WeatherInfoTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
