@@ -81,6 +81,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="ActivationKeyTests.cs" />
+    <Compile Include="AlarmTests.cs" />
     <Compile Include="Distance\LocationUtilsTests.cs" />
     <Compile Include="MantasOnlineTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

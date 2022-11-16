@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using File = System.IO.File;
 
 namespace VoiceAssistant
 {
@@ -41,6 +42,22 @@ namespace VoiceAssistant
 
             shortcut.TargetPath = targetPath;
             shortcut.Save();
+        }
+        public virtual string[] ReadAllLines(string fileName)
+        {
+            try
+            {
+                string[] lines = File.ReadAllLines(fileName);
+                return lines;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        public virtual void WriteAllLines(string fileName, string[] lines)
+        {
+            File.WriteAllLines(fileName, lines);
         }
     }
 }

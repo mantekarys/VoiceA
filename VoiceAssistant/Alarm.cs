@@ -4,11 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Runtime.CompilerServices;
+using OpenQA.Selenium.DevTools.V105.Network;
 
 namespace VoiceAssistant
 {
     public class Alarm
     {
+        public static FileManagment fileManagment = new FileManagment();
         public int Hour { get; set; }
         public int Minute { get; set; }
         public bool[] Days { get; set; }
@@ -20,7 +23,7 @@ namespace VoiceAssistant
             Days = new bool[7];
             for (int i = 0; i < 7; i++)
             {
-                if (days.Contains(i.ToString()))
+                if (days != null && days.Contains(i.ToString()))
                     Days[i] = true;
                 else
                     Days[i] = false;
@@ -29,14 +32,30 @@ namespace VoiceAssistant
         }
         public static Alarm ReadLine(string line)
         {
+            if (line == null) return null;
             string[] values = line.Split(':');
-            Alarm alarm = new Alarm(int.Parse(values[0]), int.Parse(values[1]), values[2], bool.Parse(values[3]));
-            return alarm;
+            try
+            {
+                Alarm alarm = new Alarm(int.Parse(values[0]), int.Parse(values[1]), values[2], bool.Parse(values[3]));
+                return alarm;
+            }
+            catch
+            {
+                return null;
+            }
         }
-        public static List<Alarm> ReadFile(string fileName)
+        public static List<Alarm> ReadFile(string fileName, FileManagment fileManagment = null)
         {
             List<Alarm> alarms = new List<Alarm>();
-            string[] lines = File.ReadAllLines(fileName);
+            string[] lines;
+            if (fileManagment == null)
+            {
+                lines = Alarm.fileManagment.ReadAllLines(fileName);
+            }
+            else
+            {
+                lines = fileManagment.ReadAllLines(fileName);
+            }
             foreach (string line in lines)
             {
                 Alarm alarm = ReadLine(line);
@@ -44,14 +63,22 @@ namespace VoiceAssistant
             }
             return alarms;
         }
-        public static void UpdateFile(string fileName, List<Alarm> alarms)
+        public static void UpdateFile(string fileName, List<Alarm> alarms, FileManagment fileManagment = null)
         {
             string[] lines = new string[alarms.Count];
             for (int i = 0; i < alarms.Count; i++)
             {
                 lines[i] = alarms[i].Hour.ToString() + ":" + alarms[i].Minute.ToString() + ":" + alarms[i].getDayString() + ":" + alarms[i].Enabled.ToString();
             }
-            File.WriteAllLines(fileName, lines);
+
+            if (fileManagment == null)
+            {
+                Alarm.fileManagment.WriteAllLines(fileName, lines);
+            }
+            else
+            {
+                fileManagment.WriteAllLines(fileName, lines);
+            }
         }
         public string getDayString()
         {
