@@ -68,7 +68,7 @@ namespace VoiceAssistant
                 Console.WriteLine($"Location \"{ location1 }\" not found.");
                 return -1;
             }
-            else //if (coo2.Length == 0)
+            else 
             {
                 Console.WriteLine($"Location \"{ location2 }\" not found.");
                 return -2;

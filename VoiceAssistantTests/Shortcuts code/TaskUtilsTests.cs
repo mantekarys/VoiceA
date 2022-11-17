@@ -16,7 +16,7 @@ namespace VoiceAssistant.Tests
     {
         [TestMethod()]
         [DataRow("Resources")]
-        public void GetFileNamesTestResources(string path)
+        public void GetFileNamesTestResources(string path)//problemos
         {
             var s = new string[] { "MicBlack.png", "MicGreen.png" };
             var result = TaskUtils.GetFileNames(path);

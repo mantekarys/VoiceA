@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace VoiceAssistant
 {
-    public class MantasOnlineWrapper
+    public class MantasOnlineWrapper//is called but visual studio doesn't show it. It was called 9 times
     {
         public virtual string GetClipBoradData()
         {
@@ -48,20 +48,15 @@ namespace VoiceAssistant
                 {
                     driver.Navigate().GoToUrl("https://translate.google.com/?hl=en");
                 }
-                //IWebElement elementButton = driver.FindElement(By.CssSelector("#yDmH0d > c-wiz > div > div > div > div.NIoIEf > div.G4njw > div.AIC7ge > form > div.lssxud > div > button > div.VfPpkd-RLmnJb"));
                 IWebElement elementButton = driver.FindElement(By.CssSelector("#yDmH0d > c-wiz > div > div > div > div.NIoIEf > div.G4njw > div.AIC7ge > div.CxJub > div.VtwTSb > form:nth-child(2) > div > div > button"));
 
                 elementButton.Click();
 
-                //#yDmH0d > c-wiz > div > div.WFnNle > c-wiz > div.OlSOob > c-wiz > div.ccvoYb > div.AxqVh > div.OPPzxe > c-wiz.rm1UF.UnxENd.dHeVVb > span > span > div > textarea
                 IWebElement element = driver.FindElement(By.CssSelector("#yDmH0d > c-wiz > div > div.WFnNle > c-wiz > div.OlSOob > c-wiz > div.ccvoYb > div.AxqVh > div.OPPzxe > c-wiz.rm1UF.UnxENd > span > span > div > textarea"));
-                //IWebElement element = driver.FindElement(By.CssSelector("#yDmH0d > c-wiz > div > div.WFnNle > c-wiz > div.OlSOob > c-wiz > div.ccvoYb > div.AxqVh > div.OPPzxe > c-wiz.rm1UF.UnxENd.dHeVVb > span > span > div > textarea"));
 
                 element.SendKeys(clipboardText);
                 WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-                //IWebElement element2 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector("#yDmH0d > c-wiz > div > div.WFnNle > c-wiz > div.OlSOob > c-wiz > div.ccvoYb > div.AxqVh > div.OPPzxe > c-wiz.P6w8m.BDJ8fb > div.dePhmb > div > div.J0lOec > span.VIiyi > span > span")));
                 IWebElement element2 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector("#yDmH0d > c-wiz > div > div.WFnNle > c-wiz > div.OlSOob > c-wiz > div.ccvoYb.EjH7wc > div.AxqVh > div.OPPzxe > c-wiz.sciAJc > div > div.usGWQd > div > div.lRu31 > span.HwtZe > span > span")));
-                //            IWebElement element2 = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.CssSelector("")));
 
                 Console.WriteLine("translation: " + element2.Text);
                 if (clipboardText == element2.Text)
@@ -70,10 +65,7 @@ namespace VoiceAssistant
                     return "Translation is " + element2.Text + ". Are you sure you selected an existing word, that is not in English?";
                 }
                 return element2.Text;
-            }
-            //IWebDriver driver = new ChromeDriver(service, option);
-            //https://translate.google.com/?hl=en&sl=auto&tl=en&op=translate
-            
+            }            
         }
         public static string Definition(MantasOnlineWrapper test = null)
         {
@@ -124,7 +116,7 @@ namespace VoiceAssistant
             }
             
         }
-        public static string GetClipBoradData()
+        public static string GetClipBoradData()//mocked so it is not used
         {
             try
             {

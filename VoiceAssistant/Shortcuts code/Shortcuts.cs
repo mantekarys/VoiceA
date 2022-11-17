@@ -8,28 +8,15 @@ namespace VoiceAssistant
 {
     public class Shortcut
     {
-        public static FileManagment fileManagment = new FileManagment();
+        public static FileManagment fileManagment = new FileManagment();//mock
 
-        /// <summary>
-        /// Creates shortcut to a file or folder.
-        /// </summary>
-        /// <param name="shortcutName"> Name of the shortcut </param>
-        /// <param name="shortcutPath"> Path to shortcuts folder </param>
-        /// <param name="targetPath"> Path to a file of folder to make shortcut to </param>
         public static void Create(string shortcutName, string shortcutPath, string targetPath, FileManagment fileManagment = null)
         {
             CheckDir(shortcutPath);
-            if (fileManagment == null) Shortcut.fileManagment.CreateLink(shortcutName, shortcutPath, targetPath);
+            if (fileManagment == null) Shortcut.fileManagment.CreateLink(shortcutName, shortcutPath, targetPath);//not test
             else fileManagment.CreateLink(shortcutName, shortcutPath, targetPath);
 
         }
-
-        /// <summary>
-        /// Creates shortcut to a web page.
-        /// </summary>
-        /// <param name="shortcutName"> Name of the shortcut </param>
-        /// <param name="shortcutPath"> Path to shortcuts folder </param>
-        /// <param name="url"> URL of a web page </param>
         public static void CreateURL(string shortcutName, string shortcutPath, string url, FileManagment fileManagment = null)
         {
             CheckDir(shortcutPath);
@@ -44,7 +31,7 @@ namespace VoiceAssistant
             {
                 string fullName = Directory.GetFiles(path, name + ".*")[0];
                 //System.IO.File.Delete(Path.Combine(path, fullName));
-                if (fileManagment == null) Shortcut.fileManagment.Delete(Path.Combine(path, fullName));
+                if (fileManagment == null) Shortcut.fileManagment.Delete(Path.Combine(path, fullName));//not test
                 else fileManagment.Delete(Path.Combine(path, fullName));
             }
             catch
@@ -60,7 +47,7 @@ namespace VoiceAssistant
                 string fullName = Directory.GetFiles(path, name + ".*")[0];
                 try
                 {
-                    if (fileManagment == null) Shortcut.fileManagment.Open(Path.Combine(path, fullName));//Process.Start(Path.Combine(path, fullName));
+                    if (fileManagment == null) Shortcut.fileManagment.Open(Path.Combine(path, fullName));//not test
                     else fileManagment.Open(Path.Combine(path, fullName));
                 }
                 catch (Exception ex)
