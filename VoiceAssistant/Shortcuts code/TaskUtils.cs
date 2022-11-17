@@ -24,8 +24,15 @@ namespace VoiceAssistant
         //}
         public static String[] GetFileNames(string path)
         {
-            DirectoryInfo dirInfo = new DirectoryInfo(path);
-            return (from file in dirInfo.GetFileSystemInfos() select file.Name).ToArray();
+            try
+            {
+                DirectoryInfo dirInfo = new DirectoryInfo(path);
+                return (from file in dirInfo.GetFileSystemInfos() select file.Name).ToArray();
+            }
+            catch 
+            { 
+                return null;    
+            }
         }
     }
 }
